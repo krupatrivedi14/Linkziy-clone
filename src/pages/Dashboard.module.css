@@ -14,8 +14,7 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
-  /* offset for collapsed sidebar on desktop */
-  padding-left: 72px;
+  margin-left: 72px;
 }
 
 @media (max-width: 1023px) {
@@ -679,3 +678,24 @@
 /* ── Responsive hide helpers ── */
 @media (max-width: 640px) { .hideSm { display: none !important; } }
 @media (max-width: 420px) { .hideXs { display: none !important; } }
+
+.shell,
+.shell * {
+  cursor: auto !important;
+}
+@media (min-width: 1024px) {
+  .main {
+    margin-left: 72px;
+  }
+
+  .content {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .main {
+    margin-left: 0;
+  }
+}

@@ -38,3 +38,13 @@
 @media (max-width: 768px) {
   .dot, .ring { display: none; }
 }
+
+:global(body.dashboard),
+:global(body.dashboard *) {
+  cursor: auto !important;
+}
+
+:global(body.dashboard) .dot,
+:global(body.dashboard) .ring {
+  display: none !important;
+}

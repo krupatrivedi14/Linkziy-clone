@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styles from './Auth.module.css'
+import Logo from '../components/Logo'
 
 export default function SignIn({ onNavigate }) {
   const [showPass, setShowPass] = useState(false)
@@ -45,8 +46,7 @@ export default function SignIn({ onNavigate }) {
             </div>
 
             <div className={styles.brandRow}>
-              <div className={styles.logoBox} />
-              <span className={styles.brandName}>Linkziy</span>
+              <Logo onNavigate={onNavigate} />
             </div>
 
             <h1 className={styles.panelHeading}>Build predictable growth with a cleaner, smarter outreach system.</h1>
@@ -84,8 +84,7 @@ export default function SignIn({ onNavigate }) {
           <div className={styles.formCard}>
             {/* Mobile logo */}
             <div className={styles.mobileBrand}>
-              <div className={styles.logoBoxSm} />
-              <span className={styles.brandNameDark}>Linkziy</span>
+              <Logo compact onNavigate={onNavigate} />
             </div>
 
             <div className={styles.formBadge}>

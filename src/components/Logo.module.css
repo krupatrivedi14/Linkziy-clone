@@ -1,38 +1,40 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  position: relative;
-  z-index: 2;
-  padding: 8px 12px;
-  border-radius: 14px;
-  background: rgba(0, 0, 0, 0.14);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  gap: 10px;
+
+  cursor: pointer;
+
+  /* ❌ removed background + blur */
+  background: transparent;
+  padding: 0;
 }
 
+/* image */
+
 .logoImg {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   object-fit: contain;
   display: block;
-  flex-shrink: 0;
 }
+
+/* text */
 
 .logoText {
   font-family: 'Barlow', sans-serif;
-  font-weight: 800;
+  font-weight: 500; /* not bold */
   font-size: 18px;
-  letter-spacing: 0.4px;
-  color: #475569;
+  letter-spacing: 0.2px;
+  color: #ffffff; /* ✅ white text */
   line-height: 1;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
+/* compact (sidebar icon only) */
+
 .compactLogo {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   object-fit: contain;
-  display: block;
+  cursor: pointer;
 }

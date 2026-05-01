@@ -100,6 +100,16 @@ function HomePage({ onNavigate }) {
 
 export default function App() {
   const { page, navigate } = usePage()
+  const isDashboardPage = [
+  'dashboard',
+  'prospects',
+  'sequences',
+  'inbox',
+  'analytics',
+  'campaigns',
+  'safety',
+  'dashboard-pricing',
+].includes(page)
 
   if (page === 'signin') return <SignIn onNavigate={navigate} />
   if (page === 'signup') return <SignUp onNavigate={navigate} />
@@ -166,7 +176,7 @@ export default function App() {
 
   return (
     <>
-      <CustomCursor />
+      {!isDashboardPage && <CustomCursor />}
       <Navbar currentPage={page} onNavigate={navigate} />
       {page === 'pricing' ? <Pricing /> : <HomePage onNavigate={navigate} />}
       <Footer />

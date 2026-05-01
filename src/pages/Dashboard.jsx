@@ -74,20 +74,22 @@ function Donut({ pct = 0, size = 110, stroke = 9 }) {
 
 /* ─────────────────────────────────────────────────────────── */
 export default function Dashboard({ onNavigate, activePage = 'dashboard', children }) {
-  
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [sidebarExpanded, setSidebarExpanded] = useState(false)
   const [period, setPeriod] = useState('Today')
+
 
   return (
     <div className={styles.shell}>
-      <DashSidebar
-      active={activePage}
-      onNavigate={onNavigate}
-      mobileOpen={mobileOpen}
-      onClose={() => setMobileOpen(false)}
-    />
+        <DashSidebar
+        active={activePage}
+        onNavigate={onNavigate}
+        mobileOpen={mobileOpen}
+        onClose={() => setMobileOpen(false)}
+        onExpandChange={setSidebarExpanded}
+      />
 
-      <div className={styles.main}>
+      <div className={`${styles.main} ${sidebarExpanded ? styles.mainShifted : ''}`}>
         <DashNavbar onMenuOpen={() => setMobileOpen(true)} />
 
         <main className={styles.content}>

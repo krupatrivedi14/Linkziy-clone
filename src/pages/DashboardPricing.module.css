@@ -1,376 +1,240 @@
-/* Pricing page — cream + lime theme, dashboard style */
+/* ─────────────────────────────────────────────
+   DASHBOARD PRICING — NO BOLD VERSION
+───────────────────────────────────────────── */
 
 .pricingPage {
   background:
     radial-gradient(ellipse 80% 40% at 50% 0%, rgba(200, 240, 0, 0.07), transparent 55%),
     #f4f2e8;
-  padding: 40px 88px 100px;
+
+  padding: 64px 96px 110px;
   min-height: 100vh;
   font-family: "Barlow", sans-serif;
 }
 
-/* ── Group ─────────────────────────────────── */
+/* ── SECTION ───────────────────────────── */
 
 .pricingGroup {
   max-width: 1280px;
-  margin: 0 auto 72px;
+  margin: 0 auto 80px;
 }
 
 .groupHeader {
-  margin-bottom: 28px;
+  margin-bottom: 36px;
 }
 
 .groupHeader h2 {
-  margin: 0 0 6px;
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: -0.06em;
-  line-height: 1;
+  margin: 0 0 8px;
+  font-size: 34px;
+  font-weight: 500; /* ❌ no bold */
+  letter-spacing: -0.02em;
   color: #050505;
 }
 
 .groupHeader p {
   margin: 0;
-  font-size: 15px;
-  color: #80878f;
-  line-height: 1.4;
+  font-size: 16px;
+  color: #6f7784;
 }
 
-/* ── Card grid ──────────────────────────────── */
+/* ── GRID ───────────────────────────── */
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
 }
 
-/* ── Bundle ─────────────────────────────────── */
-
-.bundleGrid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 24px;
-  align-items: start;
-}
-
-.bundleNote {
-  padding: 36px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.bestValue {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  background: rgba(200, 240, 0, 0.3);
-  border: 1px solid rgba(160, 200, 0, 0.45);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: #4a5a00;
-  width: fit-content;
-}
-
-.bundleNote h3 {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 1.2;
-  color: #050505;
-}
-
-.bundleNote p {
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #737985;
-}
-
-/* ── Card ───────────────────────────────────── */
+/* ── CARD ───────────────────────────── */
 
 .card {
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(10, 10, 10, 0.09);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(10, 10, 10, 0.08);
   border-radius: 14px;
-  padding: 28px 26px 24px;
+
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 24px rgba(10, 10, 10, 0.04), 0 1px 4px rgba(10, 10, 10, 0.04);
-  transition: box-shadow 0.2s ease;
+
+  box-shadow: 0 4px 20px rgba(10, 10, 10, 0.04);
+  transition: all 0.2s ease;
 }
 
 .card:hover {
-  box-shadow: 0 8px 36px rgba(10, 10, 10, 0.07), 0 2px 6px rgba(10, 10, 10, 0.04);
+  transform: translateY(-2px);
 }
 
-.card.featured {
-  border-color: rgba(200, 240, 0, 0.9);
-  box-shadow:
-    0 4px 24px rgba(200, 240, 0, 0.12),
-    0 1px 4px rgba(10, 10, 10, 0.04);
+/* Featured (still subtle, no bold) */
+.featured {
+  border: 1px solid #c8f000;
 }
 
-.card.featured:hover {
-  box-shadow:
-    0 8px 40px rgba(200, 240, 0, 0.18),
-    0 2px 6px rgba(10, 10, 10, 0.04);
-}
-
-.cardContent {
-  flex: 1;
-}
-
-/* ── Plan name / desc ───────────────────────── */
+/* ── TEXT ───────────────────────────── */
 
 .planName {
-  margin: 0 0 14px;
   font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 1.1;
+  font-weight: 500; /* ❌ no bold */
+  margin-bottom: 18px;
   color: #050505;
 }
 
 .planDesc {
-  margin: 0 0 28px;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #74797f;
-  min-height: 96px;
+  font-size: 16px;
+  color: #6f7784;
+  margin-bottom: 28px;
+  line-height: 1.5;
 }
 
-/* ── Price ──────────────────────────────────── */
+/* ── PRICE ───────────────────────────── */
 
 .priceLine {
   display: flex;
   align-items: flex-end;
-  gap: 2px;
   margin-bottom: 20px;
 }
 
 .price {
-  font-size: 48px;
-  font-weight: 900;
-  letter-spacing: -0.07em;
-  line-height: 0.9;
+  font-size: 46px;
+  font-weight: 500; /* ❌ no bold */
   color: #050505;
+  letter-spacing: -0.03em;
 }
 
 .month {
+  margin-left: 6px;
+  font-size: 14px;
+  color: #8b929e;
   margin-bottom: 6px;
-  font-size: 15px;
-  color: #95979e;
-  font-weight: 500;
 }
 
-/* ── Feature list ───────────────────────────── */
+/* ── FEATURES ───────────────────────────── */
 
 .features {
   list-style: none;
-  margin: 0 0 4px;
   padding: 0;
+  margin: 0 0 6px;
+
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  min-height: 220px;
+  gap: 12px;
 }
 
 .features li {
   display: flex;
-  align-items: flex-start;
   gap: 10px;
   font-size: 15px;
-  color: #2c3340;
-  line-height: 1.25;
+  color: #1f2937;
 }
 
 .tick {
-  flex-shrink: 0;
-  font-size: 13px;
-  font-weight: 800;
   color: #a8e000;
-  margin-top: 1px;
-  line-height: 1;
+  font-size: 14px;
 }
 
-/* ── Divider ────────────────────────────────── */
+/* ── DIVIDER ───────────────────────────── */
 
 .rule {
   height: 1px;
   background: rgba(10, 10, 10, 0.08);
-  margin: 22px 0 14px;
+  margin: 20px 0 14px;
 }
 
-/* ── Add-ons ────────────────────────────────── */
+/* ── ADDONS ───────────────────────────── */
 
 .addonHeading {
-  margin: 0 0 10px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
   color: #909299;
-  letter-spacing: 0.01em;
+  margin-bottom: 8px;
 }
 
 .addonList {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .addonItem {
   display: grid;
   grid-template-columns: 18px 1fr auto;
-  align-items: start;
   gap: 10px;
-  padding: 10px 10px;
-  border: 1px solid rgba(10, 10, 10, 0.09);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
 
-.addonItem:hover {
-  border-color: rgba(10, 10, 10, 0.16);
-  background: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(10, 10, 10, 0.08);
+
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
 }
 
 .addonChecked {
-  border-color: rgba(200, 240, 0, 0.75) !important;
-  background: rgba(200, 240, 0, 0.06) !important;
+  border-color: #c8f000;
+  background: rgba(200, 240, 0, 0.08);
 }
 
+/* checkbox */
+
 .checkbox {
-  width: 16px;
-  height: 16px;
-  margin-top: 2px;
-  border: 1.5px solid rgba(10, 10, 10, 0.2);
+  width: 14px;
+  height: 14px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: border-color 0.15s, background 0.15s;
+  border: 1px solid rgba(10, 10, 10, 0.2);
 }
 
 .checkboxChecked {
-  border-color: #a8e000;
   background: #c8f000;
+  border-color: #c8f000;
 }
 
-.addonCopy {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
+/* text */
 
 .addonCopy strong {
   font-size: 13px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #0a0a0a;
-  line-height: 1.15;
+  font-weight: 500; /* ❌ removed bold */
 }
 
 .addonCopy small {
-  font-size: 12px;
+  font-size: 11px;
   color: #8c929b;
-  line-height: 1.4;
 }
 
 .addonPrice {
-  font-size: 12px;
-  font-weight: 600;
-  color: #5c6370;
-  white-space: nowrap;
-  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 500; /* ❌ no bold */
 }
 
-/* ── Upgrade button ─────────────────────────── */
+/* ── BUTTON ───────────────────────────── */
 
 .upgradeBtn {
-  width: 100%;
-  min-height: 42px;
-  margin-top: 24px;
-  border-radius: 8px;
+  margin-top: 20px;
+  height: 44px;
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 500; /* ❌ no bold */
+
   border: 1px solid rgba(10, 10, 10, 0.14);
   background: rgba(244, 242, 232, 0.85);
-  color: #050505;
-  font-size: 15px;
-  font-weight: 800;
-  font-family: "Barlow", sans-serif;
-  letter-spacing: -0.01em;
-  cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
-}
 
-.upgradeBtn:hover {
-  background: #ffffff;
-  border-color: rgba(10, 10, 10, 0.22);
+  cursor: pointer;
 }
 
 .primaryBtn {
-  border-color: #c8f000;
   background: #c8f000;
+  border: none;
 }
 
 .primaryBtn:hover {
   background: #b8dc00;
-  border-color: #b8dc00;
 }
 
-/* ── Responsive ─────────────────────────────── */
+/* ── RESPONSIVE ───────────────────────────── */
 
-@media (max-width: 1280px) {
-  .pricingPage {
-    padding-left: 48px;
-    padding-right: 48px;
-  }
-  .cardGrid {
-    gap: 18px;
-  }
-  .card {
-    padding: 24px 20px 20px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .bundleGrid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 860px) {
-  .pricingPage {
-    padding: 28px 24px 72px;
-  }
+@media (max-width: 1100px) {
   .cardGrid {
     grid-template-columns: 1fr;
-    gap: 16px;
   }
-  .planDesc,
-  .features {
-    min-height: auto;
-  }
-}
 
-@media (max-width: 520px) {
   .pricingPage {
-    padding: 20px 16px 60px;
-  }
-  .groupHeader h2 {
-    font-size: 24px;
-  }
-  .planName {
-    font-size: 20px;
-  }
-  .price {
-    font-size: 42px;
+    padding: 40px 20px;
   }
 }
