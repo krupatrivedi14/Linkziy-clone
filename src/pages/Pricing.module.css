@@ -1,0 +1,645 @@
+/* ─────────────────────────────────────────
+   Page shell
+───────────────────────────────────────── */
+.main {
+  min-height: 100dvh;
+  padding-top: 112px; /* navbar height (58px) + top offset (14px) + breathing room */
+  padding-bottom: 64px;
+}
+
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ─────────────────────────────────────────
+   Heading section
+───────────────────────────────────────── */
+.headSection {
+  padding-top: 8px;
+}
+
+.heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 4.2vw, 64px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  color: var(--ink);
+  max-width: 820px;
+  margin-bottom: 12px;
+}
+
+.subheading {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink50);
+  line-height: 1.65;
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+
+/* ─────────────────────────────────────────
+   Tabs
+───────────────────────────────────────── */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tab {
+  border-radius: 9999px;
+  border: 1px solid var(--ink12);
+  background: rgba(255, 255, 255, 0.80);
+  color: rgba(10, 10, 10, 0.70);
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  transition: border-color 0.22s, background 0.22s, color 0.22s;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  border-color: rgba(200, 241, 53, 0.60);
+  background: rgba(200, 241, 53, 0.10);
+  color: var(--ink);
+}
+
+.tab.tabActive {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* ─────────────────────────────────────────
+   Plans wrapper card
+───────────────────────────────────────── */
+.plansCard {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.70);
+  background: rgba(255, 255, 255, 0.60);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  box-shadow: 0 4px 32px rgba(10, 10, 10, 0.08);
+  padding: 16px;
+}
+
+.plansGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 16px;
+}
+
+/* ─────────────────────────────────────────
+   Plan rows (left column)
+───────────────────────────────────────── */
+.planList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.planRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--ink12);
+  background: rgba(255, 255, 255, 0.60);
+  text-align: left;
+  transition: transform 0.22s, border-color 0.22s, background 0.22s, box-shadow 0.22s;
+}
+
+.planRow:hover {
+  transform: translateY(-2px);
+  border-color: rgba(200, 241, 53, 0.50);
+  background: rgba(200, 241, 53, 0.06);
+  box-shadow: 0 16px 44px rgba(10, 10, 10, 0.06);
+}
+
+.planRow.planRowActive {
+  border-color: rgba(200, 241, 53, 0.60);
+  background: rgba(200, 241, 53, 0.10);
+  box-shadow: 0 18px 56px rgba(10, 10, 10, 0.08);
+  transform: translateY(-2px);
+}
+
+.planIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(200, 241, 53, 0.40);
+  background: rgba(200, 241, 53, 0.10);
+  color: rgba(10, 10, 10, 0.90);
+}
+
+.planMeta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.planNameRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.planName {
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.planBadge {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid;
+  line-height: 1;
+}
+
+.planBadgeDark {
+  border-color: var(--ink12);
+  background: var(--ink);
+  color: var(--white);
+}
+
+.planBadgeLime {
+  border-color: rgba(200, 241, 53, 0.40);
+  background: rgba(200, 241, 53, 0.15);
+  color: var(--ink);
+}
+
+.planDesc {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink50);
+}
+
+.planPriceCol {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.planPrice {
+  display: block;
+  font-size: clamp(32px, 3.5vw, 38px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.planPeriod {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink50);
+}
+
+/* ─────────────────────────────────────────
+   Detail card (right column)
+───────────────────────────────────────── */
+.detailCard {
+  /* extends .gc from global */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.detailHeader {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.detailName {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.detailSub {
+  margin-top: 4px;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--ink50);
+}
+
+.detailTag {
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 1px solid rgba(200, 241, 53, 0.40);
+  background: rgba(200, 241, 53, 0.15);
+  padding: 6px 12px;
+  color: var(--ink);
+}
+
+/* Feature list */
+.featureList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.featureCheck {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  border: 1px solid rgba(200, 241, 53, 0.40);
+  background: rgba(200, 241, 53, 0.15);
+  color: var(--ink);
+}
+
+.featureText {
+  font-size: 13.5px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: rgba(10, 10, 10, 0.75);
+}
+
+/* Detail footer */
+.detailFooter {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ink08);
+}
+
+.detailPriceBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detailPriceLabel {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink50);
+}
+
+.detailPriceVal {
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.startBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(200, 241, 53, 0.60);
+  background: var(--lime);
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  box-shadow: 0 14px 36px rgba(200, 241, 53, 0.26);
+  transition: background 0.22s, box-shadow 0.22s, transform 0.22s;
+}
+
+.startBtn:hover {
+  background: #D4F540;
+  box-shadow: 0 18px 48px rgba(200, 241, 53, 0.36);
+  transform: translateY(-1px);
+}
+
+.startBtn:active {
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────
+   Comparison table card
+───────────────────────────────────────── */
+.compCard {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.70);
+  background: rgba(255, 255, 255, 0.60);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  box-shadow: 0 4px 32px rgba(10, 10, 10, 0.08);
+  padding: 20px;
+}
+
+.compHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.compTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(22px, 2.8vw, 28px);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.compSub {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink50);
+}
+
+.tableScroll {
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid var(--ink12);
+  background: rgba(255, 255, 255, 0.60);
+}
+
+.table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+}
+
+/* thead */
+.thead {
+  background: rgba(200, 241, 53, 0.10);
+}
+
+.th {
+  padding: 16px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink50);
+}
+
+.thFeature {
+  width: 34%;
+  text-align: left;
+  padding-left: 16px;
+}
+
+.thAgency {
+  background: rgba(200, 241, 53, 0.15);
+}
+
+/* tbody rows */
+.tr {
+  border-top: 1px solid var(--ink08);
+}
+
+.tr:hover {
+  background: rgba(200, 241, 53, 0.04);
+}
+
+.td {
+  padding: 16px;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: rgba(10, 10, 10, 0.75);
+}
+
+.tdFeature {
+  text-align: left;
+  padding-left: 16px;
+}
+
+.tdAgency {
+  background: rgba(200, 241, 53, 0.10);
+}
+
+.checkCircle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  border: 1px solid rgba(200, 241, 53, 0.40);
+  background: rgba(200, 241, 53, 0.15);
+}
+
+.tdNum {
+  font-weight: 900;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.dash {
+  color: var(--ink30);
+  font-size: 16px;
+}
+
+/* ─────────────────────────────────────────
+   Bottom CTA block
+───────────────────────────────────────── */
+.ctaBlock {
+  border-radius: 24px;
+  border: 1px solid rgba(200, 241, 53, 0.50);
+  background:
+    radial-gradient(900px 360px at 50% 20%, rgba(200,241,53,0.60), rgba(200,241,53,0.14) 55%, rgba(250,250,245,0.65) 100%),
+    linear-gradient(180deg, rgba(200,241,53,0.18), rgba(250,250,245,0.85));
+  box-shadow: 0 26px 80px rgba(200, 241, 53, 0.10);
+  overflow: hidden;
+  padding: 48px 24px;
+}
+
+.ctaInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+
+.ctaEyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid var(--ink12);
+  background: rgba(255, 255, 255, 0.70);
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, 0.85);
+  margin-bottom: 12px;
+}
+
+.ctaTitle {
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 8px;
+  text-wrap: balance;
+}
+
+.ctaSub {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.65;
+  color: var(--ink50);
+  max-width: 520px;
+  margin-bottom: 16px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 16px;
+  border: 1px solid var(--ink12);
+  background: var(--ink);
+  color: var(--white);
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  box-shadow: 0 18px 48px rgba(10, 10, 10, 0.14);
+  transition: background 0.22s, transform 0.22s;
+}
+
+.ctaBtn:hover {
+  background: rgba(10, 10, 10, 0.88);
+  transform: translateY(-1px);
+}
+
+.ctaBtn:active {
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────
+   Responsive
+───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .plansGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .detailTag {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .main {
+    padding-top: 100px;
+  }
+
+  .plansCard,
+  .compCard,
+  .ctaBlock {
+    padding: 12px;
+  }
+
+  .planRow {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .planPriceCol {
+    text-align: left;
+    width: 100%;
+  }
+
+  .tabs {
+    gap: 6px;
+  }
+
+  .tab {
+    font-size: 10px;
+    padding: 8px 12px;
+  }
+
+  .detailFooter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .startBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ctaBlock {
+    padding: 36px 16px;
+  }
+}

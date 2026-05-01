@@ -1,0 +1,55 @@
+.section { /* inherits section-pad */ }
+
+.blob1 {
+  position: absolute;
+  width: 400px; height: 400px;
+  background: rgba(200,241,53,.10);
+  top: -60px; right: 5%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 44px;
+}
+
+.card {
+  padding: 28px;
+  transition: all .3s;
+}
+
+.icon {
+  width: 40px; height: 40px;
+  background: #C8F135;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: #0A0A0A;
+  transition: background .25s, color .25s;
+}
+
+.card:hover .icon {
+  background: #0A0A0A;
+  color: #C8F135;
+}
+
+.text {
+  font-size: .88rem;
+  font-weight: 600;
+  color: rgba(10,10,10,.80);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+}

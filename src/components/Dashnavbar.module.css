@@ -1,0 +1,299 @@
+/* ============================================================
+   DashNavbar.module.css
+   ============================================================ */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px;
+  background: rgba(255,255,255,0.92);
+  border-bottom: 1px solid rgba(10,10,10,0.08);
+  box-shadow: 0 1px 0 rgba(10,10,10,0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ── Menu button (mobile) ── */
+.menuBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: #0a0a0a;
+  cursor: pointer;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.menuBtn:hover { background: rgba(200,241,53,0.12); }
+
+@media (min-width: 1024px) { .menuBtn { display: none; } }
+
+/* ── Workspace selector ── */
+.workspaceWrap {
+  display: none;
+}
+
+@media (min-width: 640px) { .workspaceWrap { display: block; } }
+
+.workspaceBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(10,10,10,0.10);
+  background: rgba(250,250,245,0.85);
+  cursor: pointer;
+  max-width: 260px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.workspaceBtn:hover {
+  background: rgba(200,241,53,0.10);
+  border-color: rgba(200,241,53,0.28);
+}
+
+.workspaceAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #0a0a0a;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(200,241,53,0.25);
+}
+
+.workspaceName {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0a0a0a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chevron {
+  color: rgba(10,10,10,0.38);
+  flex-shrink: 0;
+}
+
+/* ── Search ── */
+.searchWrap {
+  flex: 1;
+  max-width: 380px;
+  margin-left: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  color: rgba(10,10,10,0.38);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid rgba(10,10,10,0.10);
+  background: rgba(250,250,245,0.80);
+  padding: 0 64px 0 36px;
+  font-size: 13px;
+  font-family: 'Manrope', sans-serif;
+  color: #0a0a0a;
+  outline: none;
+  transition: border-color 0.16s, box-shadow 0.16s;
+}
+
+.searchInput::placeholder { color: rgba(10,10,10,0.35); }
+
+.searchInput:focus {
+  border-color: rgba(200,241,53,0.50);
+  box-shadow: 0 0 0 3px rgba(200,241,53,0.18);
+  background: #fff;
+}
+
+.kbd {
+  position: absolute;
+  right: 10px;
+  font-size: 11px;
+  color: rgba(10,10,10,0.35);
+  background: rgba(10,10,10,0.06);
+  border-radius: 6px;
+  padding: 2px 7px;
+  pointer-events: none;
+  font-family: 'Manrope', sans-serif;
+}
+
+@media (max-width: 480px) { .searchWrap { display: none; } }
+
+/* ── Actions ── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+@media (min-width: 640px) { .actions { margin-left: 0; } }
+
+/* Notification */
+.notifWrap { position: relative; }
+
+.iconBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: #0a0a0a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.iconBtn:hover { background: rgba(200,241,53,0.12); }
+
+.badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #c8f135;
+  color: #0a0a0a;
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notifPanel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 300px;
+  background: #fff;
+  border: 1px solid rgba(10,10,10,0.10);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 16px 48px rgba(10,10,10,0.14);
+  z-index: 100;
+  animation: panelIn 0.18s ease;
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.notifTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0a0a0a;
+  margin-bottom: 12px;
+}
+
+.notifItem {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.notifDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c8f135;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.notifMsg {
+  font-size: 13px;
+  color: #0a0a0a;
+  line-height: 1.4;
+}
+
+.notifTime {
+  font-size: 11px;
+  color: rgba(10,10,10,0.40);
+  margin-top: 2px;
+}
+
+/* User button */
+.userBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 8px 4px 4px;
+  border-radius: 14px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-right: 1px solid rgba(10,10,10,0.08);
+  margin-right: 4px;
+}
+
+.userBtn:hover { background: rgba(200,241,53,0.08); }
+
+.userInfo {
+  text-align: right;
+  display: none;
+}
+
+@media (min-width: 560px) { .userInfo { display: block; } }
+
+.userName {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0a0a0a;
+  line-height: 1.2;
+}
+
+.userRole {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(10,10,10,0.40);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(200,241,53,0.22);
+  color: #0a0a0a;
+  font-size: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(200,241,53,0.35);
+  flex-shrink: 0;
+}

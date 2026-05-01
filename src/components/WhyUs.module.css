@@ -1,0 +1,46 @@
+.blob1 {
+  position: absolute;
+  width: 350px; height: 350px;
+  background: rgba(200,241,53,.12);
+  bottom: -20px; right: 5%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 44px;
+}
+
+.card { padding: 36px; }
+
+.icon {
+  color: #0A0A0A;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #0A0A0A;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.desc {
+  font-size: .84rem;
+  color: rgba(10,10,10,.30);
+  line-height: 1.68;
+}
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+}

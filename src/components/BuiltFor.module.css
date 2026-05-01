@@ -1,0 +1,70 @@
+.section {
+  background: rgba(200,241,53,0.04);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 44px;
+}
+
+.card {
+  padding: 28px;
+  transition: all .3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card:hover {
+  background: rgba(10,10,10,.92) !important;
+  border-color: rgba(10,10,10,.92) !important;
+}
+
+.card:hover .icon { background: #C8F135; color: #0A0A0A !important; }
+.card:hover .title { color: #FAFAF5 !important; }
+.card:hover .desc  { color: rgba(250,250,245,.60) !important; }
+
+.icon {
+  width: 44px; height: 44px;
+  background: rgba(255,255,255,.60);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(255,255,255,.80);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0A0A0A;
+  margin-bottom: 16px;
+  transition: all .3s;
+}
+
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+  color: #0A0A0A;
+  margin-bottom: 8px;
+  transition: color .3s;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+.desc {
+  font-size: .82rem;
+  color: rgba(10,10,10,.30);
+  line-height: 1.65;
+  transition: color .3s;
+}
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+}

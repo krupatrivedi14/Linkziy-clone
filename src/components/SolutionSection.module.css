@@ -1,0 +1,35 @@
+.section {
+  background: rgba(200,241,53,0.06);
+}
+
+.blob1 {
+  position: absolute;
+  width: 350px; height: 350px;
+  background: rgba(200,241,53,.14);
+  bottom: -40px; left: 5%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.card {
+  padding: 36px;
+}
+
+.text {
+  font-size: .92rem;
+  font-weight: 700;
+  color: #0A0A0A;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+}

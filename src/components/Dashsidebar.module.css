@@ -1,0 +1,358 @@
+/* ============================================================
+   DashSidebar.module.css
+   ============================================================ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,10,0.45);
+  z-index: 40;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 50;
+  width: 72px;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 4px 0 32px rgba(10,10,10,0.28);
+
+  /* hide on mobile by default */
+  transform: translateX(-100%);
+  transition: transform 0.32s cubic-bezier(0.4,0,0.2,1), width 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+  .sidebar:hover {
+    width: 240px;
+  }
+}
+
+.mobileOpen {
+  transform: translateX(0) !important;
+  width: 240px !important;
+}
+
+/* ── Header ── */
+.header {
+  padding: 20px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+  min-height: 68px;
+}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.logoMark {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: rgba(200,241,53,0.15);
+  border: 1px solid rgba(200,241,53,0.28);
+  flex-shrink: 0;
+}
+
+.brandLabel {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  color: #fafaf5;
+  white-space: nowrap;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateX(-6px);
+  transition: max-width 0.3s, opacity 0.3s, transform 0.3s;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.45);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  display: flex;
+  flex-shrink: 0;
+  transition: color 0.15s;
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .closeBtn { display: flex; }
+}
+
+.closeBtn:hover { color: rgba(255,255,255,0.85); }
+
+/* ── Nav ── */
+.nav {
+  flex: 1;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.nav::-webkit-scrollbar { display: none; }
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.groupLabel {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+  padding: 0 12px;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s, opacity 0.3s;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Manrope', sans-serif;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background 0.16s, color 0.16s, gap 0.3s;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media (min-width: 1024px) {
+  .sidebar:hover .navItem { gap: 12px; }
+}
+
+.mobileOpen .navItem { gap: 12px; }
+
+.navItem:hover {
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.90);
+}
+
+.navItemActive {
+  background: rgba(200,241,53,0.12) !important;
+  color: #fafaf5 !important;
+}
+
+.navIcon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.45);
+  transition: color 0.15s;
+}
+
+.navIconActive { color: #c8f135 !important; }
+
+.navItem:hover .navIcon { color: rgba(255,255,255,0.80); }
+
+/* ── Locked items ── */
+.lockedItem {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.22);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Manrope', sans-serif;
+  cursor: not-allowed;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: gap 0.3s;
+}
+
+@media (min-width: 1024px) {
+  .sidebar:hover .lockedItem { gap: 12px; }
+}
+
+.mobileOpen .lockedItem { gap: 12px; }
+
+.lockedIcon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.22);
+}
+
+.lockBadge {
+  margin-left: auto;
+  color: rgba(255,255,255,0.22);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-width 0.3s, opacity 0.3s;
+}
+
+/* ── Label visibility ── */
+.itemLabel {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateX(-4px);
+  transition: max-width 0.3s, opacity 0.3s, transform 0.3s;
+  white-space: nowrap;
+}
+
+.visible {
+  max-width: 200px !important;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  max-height: 32px !important;
+}
+
+/* ── Trial widget ── */
+.trialCollapsed {
+  padding: 12px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.trialCollapsed.hidden { opacity: 0; pointer-events: none; }
+
+.trialIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(200,241,53,0.08);
+  border: 1px solid rgba(200,241,53,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c8f135;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.trialIcon:hover { background: rgba(200,241,53,0.14); }
+
+.trialBox {
+  padding: 16px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.35s, opacity 0.3s;
+}
+
+.trialBox.visible {
+  max-height: 160px;
+  opacity: 1;
+}
+
+.trialBoxInner {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.trialHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #c8f135;
+  margin-bottom: 6px;
+}
+
+.trialBadge {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(250,250,245,0.80);
+}
+
+.trialDays {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(250,250,245,0.70);
+  margin-bottom: 8px;
+}
+
+.trialDays span {
+  font-size: 20px;
+  font-weight: 800;
+  color: #c8f135;
+}
+
+.trialBar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.10);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.trialFill {
+  height: 100%;
+  background: #c8f135;
+  border-radius: 999px;
+  transition: width 0.4s;
+}
+
+.trialLink {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(250,250,245,0.75);
+  text-decoration: none;
+  text-align: center;
+  transition: color 0.15s;
+}
+
+.trialLink:hover { color: #fafaf5; }
